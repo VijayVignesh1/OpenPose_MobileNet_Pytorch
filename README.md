@@ -1,4 +1,4 @@
-# OpenPose_MobileNet_Pytorch
+# OpenPose MobileNet Pytorch
 Implementation of OpenPose MobileNet architecture using PyTorch. <br>
 This implementation is inspired from the paper "Real-time 2D Multi-Person Pose Estimation on CPU:
 Lightweight OpenPose". <br>
