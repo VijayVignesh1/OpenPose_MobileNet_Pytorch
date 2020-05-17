@@ -14,17 +14,17 @@ OpenCV 4.2.0 <br>
 2. (Optional) Edit the filenames in config.py files according to your requirement. <br>
 3. To prepared the dataset for training, run: <br>
 ```.bash
-Run "python scripts/prepare_train_labels.py"
+python scripts/prepare_train_labels.py
 ```
 This create a pickle file named "synth2-synth3" (according to my config.py file) which can be used for training. <br>
 4. To start the training process, run:
 ```.bash
-Run "python train.py"
+python train.py
 ```
 This will train the model and after every 5000 iterations, uses one image to predict the hand points using the trained network. <br>
 5. To validate on an entire folder of images, run:
 ```.bash
-Run "python val.py"
+python val.py
 ```
 This predicts hand points for all the images in the folder and stores the result in "outputs" folder (according to my config.py). <br> <br>
 I have trained the model using different hyperparameters and have had reasonable results. I am yet to find the apt hyperparameters. <br>
