@@ -29,3 +29,6 @@ Run "python val.py"
 This predicts hand points for all the images in the folder and stores the result in "outputs" folder (according to my config.py). <br> <br>
 I have trained the model using different hyperparameters and have had reasonable results. I am yet to find the apt hyperparameters. <br>
 Below are the best results I got from using different number of stages and different batch size. <br> <br>
+![](Images/Image3.jpg) <br>
+Number of Stages: 2 ; Batch Size: 8 <br>
+The outputs are not very accurate, but there are few hand points which are detected. 
