@@ -10,7 +10,7 @@ Pytorch 1.2.0 <br>
 OpenCV 4.2.0 <br>
 
 # Steps to run
-1. Download the "Hands from Synthetic Data" from this link and keep the folder "hand_labels_synth" in the main directory. <br>
+1. Download the "Hands from Synthetic Data" from [this link](http://domedb.perception.cs.cmu.edu/panopticDB/hands/hand_labels_synth.zip) and keep the folder "hand_labels_synth" in the main directory. <br>
 2. (Optional) Edit the filenames in config.py files according to your requirement. <br>
 3. To prepared the dataset for training, run: <br>
 ```.bash
