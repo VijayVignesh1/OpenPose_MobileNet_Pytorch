@@ -14,7 +14,7 @@ def prepare(prepared_annotations, folder,count):
     images=glob.glob(folder+"/*.jpg")
     json_files=glob.glob(folder+"/*.json")
     files=list(zip(images,json_files))
-    
+    print(files)
     for i,j in tqdm(files):
         # print(j)
         assert i.split(".jpg")[0]==j.split(".json")[0]
