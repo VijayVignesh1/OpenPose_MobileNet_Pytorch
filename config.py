@@ -1,10 +1,10 @@
 ### Train.py variables
 prepared_train_labels = "synth2-synth3.pkl"
-num_refinement_stages = 3
+num_refinement_stages = 5
 base_lr = 4e-5
-batch_size = 12
+batch_size = 32
 batches_per_iter = 1
-num_workers = 0
+num_workers = 4
 checkpoint_path = None
 weights_only = False
 experiment_name = 'default_stages3'
