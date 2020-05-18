@@ -11,7 +11,6 @@ sys.path.insert(0, parent_dir)
 import config as args
 
 def prepare(prepared_annotations, folder,count):
-    print(folder)
     images=glob.glob(folder+"/*.jpg")
     json_files=glob.glob(folder+"/*.json")
     files=list(zip(images,json_files))
