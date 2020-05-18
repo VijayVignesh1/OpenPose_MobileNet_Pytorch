@@ -1,5 +1,5 @@
 ### Train.py variables
-prepared_train_labels = "synth2-synth3.pkl"
+prepared_train_labels = "/content/gdrive/My Drive/OpenPoseMobileNetPytorch/OpenPose_MobileNet_Pytorch/synth2-synth3.pkl"
 num_refinement_stages = 5
 base_lr = 4e-5
 batch_size = 32
@@ -17,10 +17,10 @@ multiscale=False
 viusualize=True
 
 #### Val.py variables
-validation_folder="Validation"
+validation_folder="/content/gdrive/My Drive/OpenPoseMobileNetPytorch/OpenPose_MobileNet_Pytorch/Validation"
 validation_output_folder=validation_folder+"/outputs"
 
 #### prepare_train_labels.py variables
-datasets=["/hand_labels_synth/synth2",
-            "/hand_labels_synth/synth3"]
-output_pkl_file="synth2-synth3.pkl"
+datasets=["/content/gdrive/My Drive/OpenPoseMobileNetPytorch/OpenPose_MobileNet_Pytorch/hand_labels_synth/synth2",
+            "/content/gdrive/My Drive/OpenPoseMobileNetPytorch/OpenPose_MobileNet_Pytorch/hand_labels_synth/synth3"]
+output_pkl_file="/content/gdrive/My Drive/OpenPoseMobileNetPytorch/OpenPose_MobileNet_Pytorch/synth2-synth3.pkl"
