@@ -21,6 +21,6 @@ validation_folder="Validation"
 validation_output_folder=validation_folder+"/outputs"
 
 #### prepare_train_labels.py variables
-datasets=["hand_labels_synth\synth2",
-            "hand_labels_synth\synth3"]
+datasets=["/hand_labels_synth/synth2",
+            "/hand_labels_synth/synth3"]
 output_pkl_file="synth2-synth3.pkl"
