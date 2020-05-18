@@ -2,7 +2,7 @@
 prepared_train_labels = "synth2-synth3.pkl"
 num_refinement_stages = 5
 base_lr = 4e-5
-batch_size = 16
+batch_size = 8
 batches_per_iter = 1
 num_workers = 4
 checkpoint_path = None
