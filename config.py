@@ -14,11 +14,11 @@ val_output_name = "result"                     ### File name of the output of th
 checkpoint_after=5000
 val_after=1000
 multiscale=False
-viusualize=True
+visualize=True
 num_keypoints=21
 val_file_name = "Simple Validation Image.jpg"   ### Validation image name.
 #### Val.py variables
-validation_folder="Validation"                  ### Validation folder containing several validation images.
+validation_folder="Validation Images"                  ### Validation folder containing several validation images.
 validation_output_folder=validation_folder+"/outputs"   ### output folder inside Validation folder containing outputs for all the validation images.
 
 #### prepare_train_labels.py variables
