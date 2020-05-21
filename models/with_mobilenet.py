@@ -2,7 +2,11 @@ import torch
 from torch import nn
 
 from modules.conv import conv, conv_dw, conv_dw_no_bn
-
+import os,inspect,sys
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir) 
+import config as args
 
 class Cpm(nn.Module):
     def __init__(self, in_channels, out_channels):
@@ -78,7 +82,7 @@ class RefinementStage(nn.Module):
 
 
 class PoseEstimationWithMobileNet(nn.Module):
-    def __init__(self, num_refinement_stages=1, num_channels=128, num_heatmaps=21):
+    def __init__(self, num_refinement_stages=1, num_channels=128, num_heatmaps=args.num_keypoints):
         super().__init__()
         self.model = nn.Sequential(
             conv(     3,  32, stride=2, bias=False),

@@ -27,7 +27,7 @@ def infer(net, img, scales, base_height, stride, pad_value=(0, 0, 0), img_mean=(
     normed_img = normalize(img, img_mean, img_scale)
     height, width, _ = normed_img.shape
     scales_ratios = [scale * base_height / float(height) for scale in scales]
-    avg_heatmaps = np.zeros((height, width, 21), dtype=np.float32)
+    avg_heatmaps = np.zeros((height, width, args.num_keypoints), dtype=np.float32)
 
     for ratio in scales_ratios:
         tensor_img = torch.from_numpy(normed_img).permute(2, 0, 1).unsqueeze(0).float().cuda()
@@ -60,7 +60,7 @@ def evaluate(val_file_name, output_name, images_folder, net, num_iter, multiscal
         # print(avg_heatmaps)
         total_keypoints_num = 0
         all_keypoints_by_type = []
-        for kpt_idx in range(21):  # 19th for bg
+        for kpt_idx in range(args.num_keypoints):  # 19th for bg
             total_keypoints_num += extract_keypoints(avg_heatmaps[:, :, kpt_idx], all_keypoints_by_type, total_keypoints_num)
 
         points=[]

@@ -24,14 +24,11 @@ cv2.ocl.setUseOpenCL(False)  # To prevent freeze of DataLoader
 
 def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, batches_per_iter,
           num_workers, checkpoint_path, weights_only, checkpoints_folder, log_after,
-          val_images_folder, val_output_name, checkpoint_after, val_after):
+          val_images_folder, val_output_name, checkpoint_after, val_after, val_file_name):
 
     if not os.path.exists(val_images_folder):
         os.makedirs(val_images_folder)
     net = PoseEstimationWithMobileNet(num_refinement_stages)
-    val_file_name="00010207.jpg"
-    # print(net)
-    # exit(0)
     stride = 8
     sigma = 7
     path_thickness = 1
@@ -41,14 +38,6 @@ def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, bat
                                transform=transform_data)
 
     train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
-    # print(train_loader)
-    a=iter(train_loader).next()
-    print(a['keypoint_maps'].shape)
-    # print(a['keypoint_maps'].shape)
-    # print(a['paf_maps'].shape)
-    # print(a['keypoint_mask'].shape)
-    # print(a['paf_mask'].shape)
-    # exit(0)
     optimizer = optim.Adam([
         {'params': get_parameters_conv(net.model, 'weight')},
         {'params': get_parameters_conv_depthwise(net.model, 'weight'), 'weight_decay': 0},
@@ -68,7 +57,7 @@ def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, bat
     num_iter = 0
     current_epoch = 0
     end_epoch=300
-    drop_after_epoch = [100, 200, 240, 260, 280]
+    drop_after_epoch = [100, 200, 220, 240, 260, 280]
     scheduler = optim.lr_scheduler.MultiStepLR(optimizer, milestones=drop_after_epoch, gamma=0.333)
 
     if checkpoint_path:
@@ -85,20 +74,12 @@ def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, bat
             num_iter = checkpoint['iter']
             current_epoch = checkpoint['current_epoch']
 
-    # print(optimizer)
-    # optimizer=optimizer.cuda()
-    # print(current_epoch)
-    # for param_group in optimizer.param_groups:
-    #     param_group['lr']/=1000
-    # for param_group in optimizer.param_groups:
-    #     print(param_group['lr'])
-    # exit(0)
 
-    # torch.cuda.empty_cache()
 
     net = DataParallel(net).cuda()
-    # print(net)
     net.train()
+    min_loss=np.inf
+    print("Training Started...")
     for epochId in range(current_epoch, end_epoch):
         scheduler.step()
         total_losses = [0] * (num_refinement_stages + 1)  # heatmaps loss, paf loss per stage ## remove 1
@@ -134,7 +115,15 @@ def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, bat
             # evaluate(val_file_name, val_output_name, val_images_folder, net, 0)
             # net.train()
             # exit(0)
-
+            if sum(total_losses)<min_loss:
+                snapshot_name='{}/checkpoint_best.pth'.format(checkpoints_folder)
+                torch.save({'state_dict': net.module.state_dict(),
+                            'optimizer': optimizer.state_dict(),
+                            'scheduler': scheduler.state_dict(),
+                            'iter': num_iter,
+                            'current_epoch': epochId},
+                           snapshot_name) 
+                min_loss=sum(total_losses)               
             if num_iter % log_after == 0:
                 print('Iter: {}'.format(num_iter))
                 for loss_idx in range(len(total_losses)):
@@ -165,4 +154,5 @@ if __name__ == '__main__':
     train(args.prepared_train_labels, args.num_refinement_stages, args.base_lr, args.batch_size,
           args.batches_per_iter, args.num_workers, args.checkpoint_path, args.weights_only,
           checkpoints_folder, args.log_after, args.val_images_folder, args.val_output_name,
-          args.checkpoint_after, args.val_after)
+          args.checkpoint_after, args.val_after, args.val_file_name)
+    print("Training Done...")
