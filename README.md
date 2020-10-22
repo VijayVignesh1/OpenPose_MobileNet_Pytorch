@@ -6,8 +6,8 @@ I have used "Hands from Synthetic Data" published by CMU which has 21 keypoints 
 Initally, I have removed the paf maps from the architecture and have just trained the model on keypoint maps. I will add it in the subsequent commits. If you would like to contribute, please feel free to do so. <br>
 
 # Requirements
-Pytorch 1.2.0 <br>
-OpenCV 4.2.0 <br>
+torch>=1.2.0 <br>
+opencv>=4.2.0 <br>
 
 # Steps to run
 1. Download the "Hands from Synthetic Data" from [this link](http://domedb.perception.cs.cmu.edu/panopticDB/hands/hand_labels_synth.zip) and keep the folder "hand_labels_synth" in the main directory. <br>
