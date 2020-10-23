@@ -5,11 +5,11 @@ Lightweight OpenPose". <br>
 I have used "Hands from Synthetic Data" published by CMU which has 21 keypoints for every hand image. <br>
 Initally, I have removed the paf maps from the architecture and have just trained the model on keypoint maps. I will add it in the subsequent commits. If you would like to contribute, please feel free to do so. <br>
 
-# Requirements
+## Requirements
 torch>=1.2.0 <br>
 opencv>=4.2.0 <br>
 
-# Steps to run
+## Steps to run
 1. Download the "Hands from Synthetic Data" from [this link](http://domedb.perception.cs.cmu.edu/panopticDB/hands/hand_labels_synth.zip) and keep the folder "hand_labels_synth" in the main directory. <br>
 2. (Optional) Edit the filenames in config.py files according to your requirement. <br>
 3. To prepared the dataset for training, run: <br>
