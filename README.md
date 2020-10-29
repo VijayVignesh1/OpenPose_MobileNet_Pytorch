@@ -38,7 +38,7 @@ $(ROOT)
    |__ train.py
    ...
 ```
-2. (Optional :grinning:) Edit the filenames in config.py files according to your requirement. Download the checkpoint file from [here] (https://drive.google.com/file/d/1vSGPJp3sj22GCQZeOLb7Ynzgo3gHlus4/view?usp=sharing), place it in "\_checkpoints" folder and edit the checkpoint_path file in config.py accordingly. :thumbsup:<br>
+2. (Optional :grinning:) Edit the filenames in config.py files according to your requirement. Download the checkpoint file from [here](https://drive.google.com/file/d/1vSGPJp3sj22GCQZeOLb7Ynzgo3gHlus4/view?usp=sharing), place it in "\_checkpoints" folder and edit the checkpoint_path file in config.py accordingly. :thumbsup:<br>
 3. To prepared the dataset for training, run: <br>
 ```.bash
 python scripts/prepare_train_labels.py
