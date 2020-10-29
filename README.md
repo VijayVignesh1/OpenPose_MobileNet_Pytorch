@@ -12,7 +12,7 @@ If you would like to contribute, please feel free to do so. <br>
 * opencv>=4.2.0 <br>
 
 ## Steps to run
-1. Download the "Hands from Synthetic Data" from [this link](http://domedb.perception.cs.cmu.edu/panopticDB/hands/hand_labels_synth.zip) and keep the folder "hand_labels_synth" in the main directory. Final directory structure below :point_down: :point_down:<br>
+* Download the "Hands from Synthetic Data" from [this link](http://domedb.perception.cs.cmu.edu/panopticDB/hands/hand_labels_synth.zip) and keep the folder "hand_labels_synth" in the main directory. Final directory structure below :point_down: :point_down:<br>
 ```
 $(ROOT)
   |__ hand_labels_synth
@@ -38,18 +38,18 @@ $(ROOT)
    |__ train.py
    ...
 ```
-2. (Optional :grinning:) Edit the filenames in config.py files according to your requirement. Download the checkpoint file from [here](https://drive.google.com/file/d/1vSGPJp3sj22GCQZeOLb7Ynzgo3gHlus4/view?usp=sharing), place it in "\_checkpoints" folder and edit the checkpoint_path file in config.py accordingly. :thumbsup:<br>
-3. To prepared the dataset for training, run: <br>
+* (Optional :grinning:) Edit the filenames in config.py files according to your requirement. Download the checkpoint file from [here](https://drive.google.com/file/d/1vSGPJp3sj22GCQZeOLb7Ynzgo3gHlus4/view?usp=sharing), place it in "\_checkpoints" folder and edit the checkpoint_path file in config.py accordingly. :thumbsup:<br>
+* To prepared the dataset for training, run: <br>
 ```.bash
 python scripts/prepare_train_labels.py
 ```
 This create a pickle file named "synth2-synth3" (according to my config.py file :innocent:) which can be used for training. <br>
-4. To start the training process, run:
+* To start the training process, run:
 ```.bash
 python train.py
 ```
 This will train the model and after every 1000 iterations, uses one image to predict the hand points using the trained network and stores it in "outputs" folder. <br>
-5. To validate on an entire folder of images, <b> edit the checkpoint_path variable in config.py to point the required checkpoint file</b>,run:
+* To validate on an entire folder of images, <b> edit the checkpoint_path variable in config.py to point the required checkpoint file</b>,run:
 ```.bash
 python val.py
 ```
