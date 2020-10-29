@@ -38,7 +38,7 @@ $(ROOT)
    |__ train.py
    ...
 ```
-2. (Optional :grinning:) Edit the filenames in config.py files according to your requirement. Download the checkpoint file from here, place it in "\_checkpoints" folder and edit the checkpoint_path file in config.py accordingly. :thumbsup:<br>
+2. (Optional :grinning:) Edit the filenames in config.py files according to your requirement. Download the checkpoint file from [here] (https://drive.google.com/file/d/1vSGPJp3sj22GCQZeOLb7Ynzgo3gHlus4/view?usp=sharing), place it in "\_checkpoints" folder and edit the checkpoint_path file in config.py accordingly. :thumbsup:<br>
 3. To prepared the dataset for training, run: <br>
 ```.bash
 python scripts/prepare_train_labels.py
@@ -55,7 +55,6 @@ python val.py
 ```
 This predicts hand points for all the images in the folder and stores the result in "outputs" folder (again, according to my config.py!! :satisfied:). <br> <br>
 ## Results
-![](Images/00000006.jpg) <br>
 ![](Images/00010002.jpg) <br>
 ![](Images/00010189.jpg) <br>
 <b> <i> Number of Stages: 2 ; Batch Size: 8 </i> </b> <br>
