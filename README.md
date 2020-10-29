@@ -56,8 +56,8 @@ python val.py
 This predicts hand points for all the images in the folder and stores the result in "outputs" folder (again, according to my config.py!! :satisfied:). <br> <br>
 ## Results
 ![](Images/00000006.jpg) <br>
-![](Images/00000006.jpg) <br>
-![](Images/00000006.jpg) <br>
+![](Images/00010002.jpg) <br>
+![](Images/00010189.jpg) <br>
 <b> <i> Number of Stages: 2 ; Batch Size: 8 </i> </b> <br>
 
 ### Note
