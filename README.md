@@ -48,12 +48,12 @@ This create a pickle file named "synth2-synth3" (according to my config.py file 
 ```.bash
 python train.py
 ```
-This will train the model and after every 1000 iterations, uses one image to predict the hand points using the trained network. <br>
+This will train the model and after every 1000 iterations, uses one image to predict the hand points using the trained network and stores it in "outputs" folder. <br>
 5. To validate on an entire folder of images, <b> edit the checkpoint_path variable in config.py to point the required checkpoint file</b>,run:
 ```.bash
 python val.py
 ```
-This predicts hand points for all the images in the folder and stores the result in "outputs" folder (again, according to my config.py!! :satisfied:). <br> <br>
+This predicts hand points for all the images in the folder and stores the result in "\_checkpoint/outputs" folder (again, according to my config.py!! :satisfied:). <br> <br>
 ## Results
 ![](Images/00010002.jpg) <br>
 ![](Images/00010189.jpg) <br>
