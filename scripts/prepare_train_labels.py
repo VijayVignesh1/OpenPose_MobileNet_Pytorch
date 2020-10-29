@@ -10,12 +10,12 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 import config as args
 
+# Prepares the dataset given the images and json file locations
 def prepare(prepared_annotations, folder,count):
     images=glob.glob(folder+"/*.jpg")
     json_files=glob.glob(folder+"/*.json")
     files=list(zip(images,json_files))
     for i,j in tqdm(files):
-        # print(j)
         assert i.split(".jpg")[0]==j.split(".json")[0]
         annot={}
         img=cv2.imread(i)

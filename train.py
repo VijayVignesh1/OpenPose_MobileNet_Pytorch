@@ -21,7 +21,7 @@ import config as args
 cv2.setNumThreads(0)
 cv2.ocl.setUseOpenCL(False)  # To prevent freeze of DataLoader
 
-
+# Trains the model on the prepared dataset and saves checkpoint frequently
 def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, batches_per_iter,
           num_workers, checkpoint_path, weights_only, checkpoints_folder, log_after,
           val_images_folder, val_output_name, checkpoint_after, val_after, val_file_name):
@@ -112,9 +112,6 @@ def train(prepared_train_labels, num_refinement_stages, base_lr, batch_size, bat
             else:
                 continue
 
-            # evaluate(val_file_name, val_output_name, val_images_folder, net, 0)
-            # net.train()
-            # exit(0)
             if sum(total_losses)<min_loss:
                 snapshot_name='{}/checkpoint_best.pth'.format(checkpoints_folder)
                 torch.save({'state_dict': net.module.state_dict(),

@@ -17,12 +17,14 @@ import config as args
 import glob
 from tqdm import tqdm
 
+# Normalize the image values to the range [0-1]
 def normalize(img, img_mean, img_scale):
     img = np.array(img, dtype=np.float32)
     img = (img - img_mean) * img_scale
     return img
 
-
+# Gets the images as input and applies the model to it
+# Returns the heatmap which gives the probability of the keypoint in the images
 def infer(net, img, scales, base_height, stride, pad_value=(0, 0, 0), img_mean=(128, 128, 128), img_scale=1/256):
     normed_img = normalize(img, img_mean, img_scale)
     height, width, _ = normed_img.shape
@@ -41,7 +43,8 @@ def infer(net, img, scales, base_height, stride, pad_value=(0, 0, 0), img_mean=(
 
     return avg_heatmaps
 
-
+# Evaulate the model on given images
+# Visualizes the output if visualize = True
 def evaluate(val_file_name, output_name, images_folder, net, num_iter, multiscale=False, visualize=True):
     net = net.cuda().eval()
     base_height = 368
@@ -57,7 +60,6 @@ def evaluate(val_file_name, output_name, images_folder, net, num_iter, multiscal
         img = sample['img']
 
         avg_heatmaps = infer(net, img, scales, base_height, stride)
-        # print(avg_heatmaps)
         total_keypoints_num = 0
         all_keypoints_by_type = []
         for kpt_idx in range(args.num_keypoints):  # 19th for bg
@@ -65,7 +67,6 @@ def evaluate(val_file_name, output_name, images_folder, net, num_iter, multiscal
 
         points=[]
         for i in all_keypoints_by_type:
-            # print(i)
             if i==[]:
                 continue
             elif len(i)==1:

@@ -1,3 +1,4 @@
+# Calculates the L2 Loss
 def l2_loss(input, target, batch_size):
     loss = (input - target)
     loss = (loss * loss) / 2 / batch_size

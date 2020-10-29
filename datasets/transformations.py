@@ -3,7 +3,8 @@ import random
 import cv2
 import numpy as np
 
-
+# Converts the keypoints status using the info in json file into three buckets
+# occulded, visible and not in image
 class ConvertKeypoints:
     def __call__(self, sample):
         label = sample['label']

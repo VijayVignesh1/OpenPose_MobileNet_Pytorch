@@ -1,6 +1,6 @@
 import collections
 
-
+# Loads the given checkpoints
 def load_state(net, checkpoint):
     source_state = checkpoint['state_dict']
     target_state = net.state_dict()

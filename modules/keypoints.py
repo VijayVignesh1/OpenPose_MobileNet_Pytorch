@@ -2,6 +2,7 @@ import math
 import numpy as np
 from operator import itemgetter
 
+# Extracts the keypoints from the average heatmaps produced by the model
 def extract_keypoints(heatmap, all_keypoints, total_keypoint_num):
     heatmap[heatmap < 0.1] = 0
     heatmap_with_borders = np.pad(heatmap, [(2, 2), (2, 2)], mode='constant')

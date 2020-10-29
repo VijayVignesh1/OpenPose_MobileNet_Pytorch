@@ -10,7 +10,7 @@ import pycocotools
 
 from torch.utils.data.dataset import Dataset
 
-
+# Class for loading the training dataset
 class TrainDataset(Dataset):
     def __init__(self, labels, stride, sigma, paf_thickness, transform=None):
         super().__init__()
@@ -78,20 +78,17 @@ class TrainDataset(Dataset):
                 if keypoint_map[map_y, map_x] > 1:
                     keypoint_map[map_y, map_x] = 1
 
+# Class for loading the testing dataset
 class ValDataset(Dataset):
     def __init__(self, file_name, images_folder):
         super().__init__()
-        # with open(labels, 'r') as f:
-        #     self._labels = json.load(f)
         self._images_folder = images_folder
         self._images_folder = ""
         self.file_name=file_name
 
 
     def __getitem__(self, idx):
-        # file_name = self._labels['images'][idx]['file_name']
         img = cv2.imread(os.path.join(self._images_folder, self.file_name), cv2.IMREAD_COLOR)
-        # print("image",img.shape)
         return {
             'img': img,
             'file_name': self.file_name
