@@ -85,7 +85,7 @@ def evaluate(val_file_name, output_name, images_folder, net, num_iter, multiscal
         if visualize:
             for i in points:
                 cv2.circle(img,i,3,(255,0,255),-1)
-            output_name1=os.path.join(images_folder,output_name)+str(num_iter)+".jpg"
+            output_name1=os.path.join(images_folder,output_name)+str(num_iter)
             cv2.imwrite(output_name1,img)
             return
 
