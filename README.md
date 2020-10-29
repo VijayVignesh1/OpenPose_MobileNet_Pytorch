@@ -59,7 +59,7 @@ This predicts hand points for all the images in the folder and stores the result
 ![](Images/00010189.jpg) <br>
 <b> <i> Number of Stages: 2 ; Batch Size: 8 </i> </b> <br>
 
-### Note
+## Final Note
 The outputs are fairly accurate, but there are a couple of keypoints which are slightly off place. Guess it needs more training. :grin: <br> <br>
 
 Go ahead..pull it, train it and have fun. :smile:
