@@ -54,9 +54,13 @@ This will train the model and after every 1000 iterations, uses one image to pre
 python val.py
 ```
 This predicts hand points for all the images in the folder and stores the result in "outputs" folder (again, according to my config.py!! :satisfied:). <br> <br>
-Below are the best results I got from using different number of stages and different batch size. <br> <br>
-![](Images/Image3.jpg) <br>
+## Results
+![](Images/00000006.jpg) <br>
+![](Images/00000006.jpg) <br>
+![](Images/00000006.jpg) <br>
 <b> <i> Number of Stages: 2 ; Batch Size: 8 </i> </b> <br>
+
+### Note
 The outputs are fairly accurate, but there are a couple of keypoints which are slightly off place. Guess it needs more training. :grin: <br> <br>
 
 Go ahead..pull it, train it and have fun. :smile:
