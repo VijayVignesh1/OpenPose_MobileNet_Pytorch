@@ -1,7 +1,7 @@
 # OpenPose MobileNet Pytorch
 Implementation of OpenPose MobileNet architecture using PyTorch. :sunglasses: :sunglasses: <br>
-This implementation is inspired from the paper "Real-time 2D Multi-Person Pose Estimation on CPU:
-Lightweight OpenPose". <br>
+This implementation is inspired from the paper <b>"Real-time 2D Multi-Person Pose Estimation on CPU:
+Lightweight OpenPose"</b>. <br>
 I have used "Hands from Synthetic Data" published by CMU which has 21 keypoints for every hand image. <br>
 I have removed the paf maps from the architecture and have just trained the model on keypoint maps. I will try to add it in the subsequent commits :wink:. <br>
 If you would like to contribute, please feel free to do so. <br>
