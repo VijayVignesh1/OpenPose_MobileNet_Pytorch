@@ -62,7 +62,7 @@ This predicts hand points for all the images in the folder and stores the result
 ## Final Note
 The outputs are fairly accurate, but there are a couple of keypoints which are slightly off place. Guess it needs more training. :grin: <br> <br>
 
-Go ahead..pull it, train it and have fun. And don't forget to <b><i> star </i></b> :star: the repo, if you like it. :smile:
+Go ahead..pull it, train it and have fun. And don't forget to :star:<b><i>star</i></b>:star: the repo, if you like it. :smile:
 
 -------------------------------------
 <p align="center">
