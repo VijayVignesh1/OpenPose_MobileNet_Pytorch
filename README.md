@@ -66,6 +66,6 @@ Go ahead..pull it, train it and have fun. And don't forget to :star:<b><i>star</
 
 -------------------------------------
 <p align="center">
-:star: Happiness should be a function without any parameters :star: <br> <br>
+:star2: Happiness should be a function without any parameters :star2: <br> <br>
 <b>Happy Coding</b> :exclamation: :exclamation:
 </p>
